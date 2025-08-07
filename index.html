@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Dirimu Sayang</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap');
+
+        :root {
+            --pink: #FF69B4;
+            --light-pink: #FFB6C1;
+            --blue: #ADD8E6;
+            --light-blue: #E6F0FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--light-blue), white);
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            animation: fall 4s linear forwards;
+            opacity: 0.7;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        header {
+            background: linear-gradient(to right, var(--pink), var(--blue));
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .love-letter {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            border: 1px solid var(--light-pink);
+        }
+
+        .love-letter::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            transform: rotate(45deg);
+            border-left: 1px solid var(--light-pink);
+            border-top: 1px solid var(--light-pink);
+        }
+
+        h2 {
+            color: var(--pink);
+            margin-bottom: 1rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .poem {
+            font-style: italic;
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: rgba(173, 216, 230, 0.2);
+            border-radius: 10px;
+            border-left: 4px solid var(--blue);
+        }
+
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 2rem 0;
+        }
+
+        .photo-item {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .cta-button {
+            display: block;
+            width: 200px;
+            margin: 2rem auto;
+            padding: 12px 20px;
+            background: linear-gradient(to right, var(--pink), var(--blue));
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--light-blue);
+            color: #555;
+            margin-top: 3rem;
+        }
+
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+        }
+
+        .music-player i {
+            color: var(--pink);
+            font-size: 1.5rem;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .main-content {
+                padding: 0 15px;
+            }
+            
+            .photo-item {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .photo-item {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Untuk Kamu yang Tercinta</h1>
+        <p class="subtitle">Sebuah pesan kecil dari hatiku</p>
+    </header>
+
+    <div class="main-content">
+        <div class="love-letter">
+            <h2>Sayangku...</h2>
+            <p>aress mintaaa maafff yaaa aressss benerrr" maafff bngttt udahh bikinn inaa badmood teruss, aress tauu pastii inaa udahh kesell bngtt yaaa liatt aress beginii maaff yaaa, aress bakall cobaa perbaikinn sifatt aress yang inii lagii</p>
+            <p>inaa mauu tauu sesuatuuu gaaa sebenernyaaa namaa aress ituu punyaa artii tauuu, kaloo inaa mauu tauu kitaa baikann duluu yaa sayanggg aress sebenernyaa gaaa mauu diem"an giniii tapiii kalooo inaa mauu baikann aress bakall ceritaa semuaa nyaa samaa inaa</p>
+            <p>aress mintaaa maaff bngtt yaaa sayanggg, aress jugaaa gaa mauu ginii sebenernyaa, inaa sabarr yaaa aress tauu face inaa ituu dihapuss robloxx kann nantii aress bakall bantuu inaa cariinn face robloxx yangg baruu, sebenernyaa inaa pake apaa ajaa punn tetepp cantikk jadiii jangann sedihh yaaa, aress mintaa maafff bngtt udahhh buatt inaa beginii</p>
+            <p>inaa baless yaaa di wa aresss mauu inaa chattt manjaa" lagiii hihiii, aress tungguinn yaaa, ohhh iyaaa dibawahann inii jangann lupaa dibacaaa samaa kaloo adaa tomboll inaa pencett ajaa yaaa sayanggg, babaiiiii</p>
+        </div>
+
+        <div class="poem">
+            <p>Jika cinta adalah bahasa universal</p>
+            <p>Maka aku ingin berbicara denganmu sepanjang waktu</p>
+            <p>Jika waktu bisa membeku</p>
+            <p>Aku akan memilih detik ketika mataku pertama bertemu denganmu</p>
+        </div>
+
+        <h2 style="text-align: center;">Kenangan Kita</h2>
+        <div class="photo-gallery">
+            <div class="photo-item">
+                <img src="1.png" alt="Pasangan tersenyum bersama di bawah pohon berbunga pink dengan latar sunset">
+            </div>
+            <div class="photo-item">
+                <img src="2.png" alt="Pasangan memegang tangan di pantai dengan ombak biru di latar belakang">
+            </div>
+            <div class="photo-item">
+                <img src="3.png" alt="Close-up pasangan tertawa bersama di kafe dengan lampu string cahaya hangat">
+            </div>
+            <div class="photo-item">
+                <img src="4.png" alt="Pasangan berdiri back to back di taman bunga dengan balon hati berwarna pink">
+            </div>
+        </div>
+
+        <button class="cta-button" id="loveButton">Klik untuk Pesan Khusus</button>
+    </div>
+
+    <footer>
+        <p>Dibuat dengan ❤️ khusus untukmu</p>
+    </footer>
+
+    <div class="music-player" id="musicToggle">
+        <i class="fas fa-music"></i>
+        <audio id="bgMusic" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        // Create falling hearts
+        function createHearts() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        setInterval(createHearts, 300);
+
+        // Music toggle
+        const musicToggle = document.getElementById('musicToggle');
+        const bgMusic = document.getElementById('bgMusic');
+        let isPlaying = false;
+
+        musicToggle.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicToggle.innerHTML = '<i class="fas fa-music"></i>';
+                isPlaying = false;
+            } else {
+                bgMusic.play();
+                musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+                isPlaying = true;
+            }
+        });
+
+        // Love button effect
+        const loveButton = document.getElementById('loveButton');
+        loveButton.addEventListener('click', () => {
+            alert('Aku mencintaimu lebih dari apapun di dunia ini! ❤️');
+            
+            // Create heart explosion
+            for (let i = 0; i < 50; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.style.position = 'fixed';
+                heart.style.left = '50%';
+                heart.style.top = '50%';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`;
+                heart.style.opacity = '0';
+                heart.style.transition = 'all 1s ease-out';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.top = Math.random() * 100 + 'vh';
+                    heart.style.opacity = '0.7';
+                }, 10);
+                
+                setTimeout(() => {
+                    heart.style.opacity = '0';
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 1000);
+                }, 1000);
+            }
+        });
+
+        // Initial animation for header elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const h1 = document.querySelector('h1');
+            const subtitle = document.querySelector('.subtitle');
+            
+            h1.style.opacity = '0';
+            h1.style.transform = 'translateY(-20px)';
+            h1.style.transition = 'all 0.8s ease';
+            
+            subtitle.style.opacity = '0';
+            subtitle.style.transform = 'translateY(-20px)';
+            subtitle.style.transition = 'all 0.8s ease 0.3s';
+            
+            setTimeout(() => {
+                h1.style.opacity = '1';
+                h1.style.transform = 'translateY(0)';
+                subtitle.style.opacity = '1';
+                subtitle.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
+
